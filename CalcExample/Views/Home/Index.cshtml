@@ -1,0 +1,152 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">C# ASP.NET Calculator Example</h1>
+    <p>Example modeling a calculator from NSC for Substance Abuse</p>
+</div>
+
+
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-8 ">
+            <hr />
+            <p class="font15">
+                @* <strong>The National Safety Council</strong> has collaborated with an independent research institution, <strong>NORC at the University of Chicago</strong>, to update "The Real Cost of Substance Use to Employers" tool, originally developed in 2017 with national nonprofit Shatterproof. This cost calculator is an authoritative, easy-to-use tool providing business leaders with specific information about the cost of substance use (including prescription drug use and misuse, alcohol use and misuse, opioid and heroin addiction, as well as use of other illicit drugs and cannabis) in their workplace based on size of employee base, industry and state.*@
+
+                This is a brief example of a calculator borrowing some HTML from the original where using the ASP.NET MVC framework to route information through a form and have a calculation performed. Algorithmic logic to be written as its own Class and implemented throughout the controller routes, but for a breif example just shows as a multiplication in a local function on a page following this one. With the database, the ability to record inputs from clients exists for data science purposes analyzing form inputs from the calculator. Using  and accessing the values as shown on the following page. Understanding the original calculator is a single-page application most likely using an API, this simple version uses multiple veiws rather than dynamically changing the initial view.
+            </p>
+            <hr />
+            <h2 class="green top25 bot15" style="font-size: 22px;">Calculate Your Workplace Costs</h2>
+            <form asp-controller="Calculators" asp-action="Create">
+                <div class="stateInsert">
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <h3 style="font: 18px arial,sans-serif !important;" class="top10">Where are your facilities/offices located?</h3>
+                        </div>
+                        <div class="stateContainer">
+                            <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <select name="State" id="State1" class="form-control input-lg" required="required">
+                                            <option value="" selected disabled="disabled">-- Choose State --</option>
+                                            <option value="0">National</option>
+                                            <option value="4">Alabama</option>
+                                            <option value="45">Alaska</option>
+                                            <option value="41">Arizona</option>
+                                            <option value="3">Arkansas</option>
+                                            <option value="30">California</option>
+                                            <option value="48">Colorado</option>
+                                            <option value="27">Connecticut</option>
+                                            <option value="34">Delaware</option>
+                                            <option value="51">District of Columbia</option>
+                                            <option value="10">Florida</option>
+                                            <option value="5">Georgia</option>
+                                            <option value="26">Hawaii</option>
+                                            <option value="23">Idaho</option>
+                                            <option value="8">Illinois</option>
+                                            <option value="32">Indiana</option>
+                                            <option value="13">Iowa</option>
+                                            <option value="31">Kansas</option>
+                                            <option value="7">Kentucky</option>
+                                            <option value="16">Louisiana</option>
+                                            <option value="15">Maine</option>
+                                            <option value="20">Maryland</option>
+                                            <option value="33">Massachusetts</option>
+                                            <option value="21">Michigan</option>
+                                            <option value="19">Minnesota</option>
+                                            <option value="9">Mississippi</option>
+                                            <option value="17">Missouri</option>
+                                            <option value="49">Montana</option>
+                                            <option value="43">Nebraska</option>
+                                            <option value="36">Nevada</option>
+                                            <option value="46">New Hampshire</option>
+                                            <option value="6">New Jersey</option>
+                                            <option value="39">New Mexico</option>
+                                            <option value="24">New York</option>
+                                            <option value="18">North Carolina</option>
+                                            <option value="44">North Dakota</option>
+                                            <option value="29">Ohio</option>
+                                            <option value="14">Oklahoma</option>
+                                            <option value="38">Oregon</option>
+                                            <option value="22">Pennsylvania</option>
+                                            <option value="50">Rhode Island</option>
+                                            <option value="11">South Carolina</option>
+                                            <option value="37">South Dakota</option>
+                                            <option value="2">Tennessee</option>
+                                            <option value="12">Texas</option>
+                                            <option value="1">Utah</option>
+                                            <option value="42">Vermont</option>
+                                            <option value="28">Virginia</option>
+                                            <option value="35">Washington</option>
+                                            <option value="25">West Virginia</option>
+                                            <option value="47">Wisconsin</option>
+                                            <option value="40">Wyoming</option>
+                                        </select>
+                                        <span style="display: none" id="StateError" class="help-block">Please select a state.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-7">
+                            <h3 style="font: 18px arial,sans-serif !important;" class="top10">How many employees in your organization?</h3>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-5">
+                            <div class="form-group">
+                                <input type="number" name="Employees" id="Employee1" class="form-control input-lg" placeholder="# of Employees" maxlength="15" data-toggle="tooltip" data-placement="top" title="Please enter a number with no commas." data-original-title="Please enter a number with no commas.">
+                                <span style="display: none" id="EmployeesError" class="help-block">Please enter a number of employees greater than 0.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <h3 style="font: 18px arial,sans-serif !important;" class="top10">What is your industry?</h3>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5">
+                        <div class="form-group">
+                            <select name="Industry" id="Industry" class="form-control input-lg" required="required">
+                                <option value="" selected="selected" data-hidden="true">-- Choose Industry --</option>
+                                <option value="1">Agriculture</option>
+                                <option value="3">Construction</option>
+                                <option value="14">Education, Health, Social Services</option>
+                                <option value="15">Entertainment, Recreation, Food</option>
+                                <option value="12">Finance, Insurance, Real Estate</option>
+                                <option value="8">Information, Communications</option>
+                                <option value="5">Manufacturing, Durable</option>
+                                <option value="4">Manufacturing, Nondurable</option>
+                                <option value="2">Mining</option>
+                                <option value="17">Other Services (Not Public Admin.)</option>
+                                <option value="13">Professional, Mgmt., Admin.</option>
+                                <option value="16">Public Administration</option>
+                                <option value="11">Retail</option>
+                                <option value="6">Transportation, Utilities</option>
+                                <option value="9">Wholesale, Durable</option>
+                                <option value="10">Wholesale, Nondurable</option>
+                            </select>
+                            <span style="display: none" id="IndustryError" class="help-block">Please select an industry.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row top25 emailsubresults justify-content-center">
+                    <div class="col-xs-12 col-sm-6 col-md-5 text-center">
+                        <div class="form-group btn btn-custom btn-block btn-lg">
+                            <input type="submit" formmethod="post" value="Get Your Report" class="" id="FinalSubmitBtn" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing...">
+                            <span style="display: none" id="SubmitError" class="help-block"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br>
+
+        </div>
+    </div>
+</div>

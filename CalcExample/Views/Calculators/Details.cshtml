@@ -1,0 +1,36 @@
+﻿@model CalcExample.Models.Calculator
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Calculator</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.State)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Industry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Industry)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Employees)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Employees)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

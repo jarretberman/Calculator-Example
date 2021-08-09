@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CalcExample.Models.Calculator>
+
+@{
+    ViewData["Title"] = "Results";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Industry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @ViewData["State"]
+            </td>
+            <td>
+                @ViewData["Industry"]
+            </td>
+            <td>
+                @ViewData["Employees"]
+            </td>
+          
+        </tr>
+    </tbody>
+    
+</table>
+
+<h2>RESULTS : $@ViewData["Results"]</h2>
+<a href="/">Return</a>
